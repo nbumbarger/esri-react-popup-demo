@@ -190,11 +190,16 @@ ReactDOM.render((
 					<section>
 						<h4>4.2 Different styles can be chosen for different events</h4>
 						<pre><code class="hlcss" data-trim contenteditable>
+// apply on pointer-move instead of click
 view.on('pointer-move', evt => {
   view.hitTest(evt).then(res => {
     if (res.results.length) {
       const popupClasses = document.querySelector('.esri-popup').classList;
-      popupClasses.remove('type2');
+      // remove existing classes
+      popupClasses.forEach(pClass => {
+        if (pClass !=== 'esri-popup') { popupClasses.remove(pClass); }
+      });
+      // apply a specific class
       popupClasses.add('type1');
       this.openPopup();
     };
@@ -205,15 +210,18 @@ view.on('pointer-move', evt => {
 					    <section>
 						    <h4>4.3 Different styles can be chosen for different features</h4>
 						    <pre><code class="hlcss" data-trim contenteditable>
+// different styles on different features
 view.hitTest(evt).then(res => {
-  const results = res.results;
   const popupClasses = document.querySelector('.esri-popup').classList;
-  if (results.length && (results[0].graphic.id === 'type1')) {
-    popupClasses.remove('type2')
-    popupClasses.classList.add('type1');
-  } else if (results.length && results[0].graphic.id === 'type2') {
-    popupClasses.remove('type1')
-    popupClasses.add('type2');
+  if (res.results.length) {
+    // get id of clicked feature
+    const clickedClass = res.results[0].graphic.id;
+    // remove existing classes
+    popupClasses.forEach(pClass => {
+      if (pClass !=== 'esri-popup') { popupClasses.remove(pClass); }
+    });
+    // apply class based on id of clicked feature
+    popupClasses.add(clickedClass);
   }
 })
 						    </code></pre>
@@ -223,7 +231,8 @@ view.hitTest(evt).then(res => {
 					<section>
 						<h3>5: Set app state by simply passing dispatch to the popup generator</h3>
 						<pre><code class="hljsx" data-trim contenteditable>
-view.popup.open({location, content: this.createPopup(feats, d)});
+
+							view.popup.open({location, content: this.createPopup(feats, disp)});
 ...
 const createPopup = (feats, disp) => {
   const popupJsx = (
