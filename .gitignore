@@ -1,0 +1,18 @@
+# Ignore
+dist
+node_modules
+module_json_folder/*
+!module_json_folder/.gitkeep 
+.DS_Store
+coverage
+*.log
+*.swp
+.idea/
+.vscode/
+.editorconfig
+yarn-error.log
+
+# SSL certs
+cert.crt
+cert.key
+/resources/
