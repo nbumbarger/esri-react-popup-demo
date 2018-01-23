@@ -39,7 +39,7 @@
 		<div class="reveal">
 
 			<div class="slides">
-				<section>
+				<section data-transition="convex">
 					<h1>Tooltips as a Tool</h1>
 					<h4>Super-Powered JS API Popups In React/Redux</h4>
 					<p>
@@ -47,12 +47,12 @@
 					</p>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h1>The Old Ways</h1>
 					<h4>PopupTemplate or HTML String</h4>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h1>PopupTemplate</h1>
 					<h4>Drawbacks:</h4>
 					<ul>
@@ -61,7 +61,7 @@
 					</ul>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h1>HTML String</h1>
 					<h4>Drawbacks:</h4>
 					<ul>
@@ -71,12 +71,12 @@
 					</ul>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h1>The Super-Powered Way</h1>
 					<p>Send the view's popup a parentless DOM node, written in your framework of choice.</ph4>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 				    <h1>Super Popups</h1>
 					<ul>
 					    <li>Fully customizeable</li>
@@ -86,11 +86,11 @@
 					</ul>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h1>Focus on React/JSX</h1>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h3>1: Add Event-Driven HitTest to View</h3>
 					<pre><code class="hljs" data-trim contenteditable>
 view.hitTest('click', evt).then(response => {
@@ -101,7 +101,7 @@ view.hitTest('click', evt).then(response => {
 					</code></pre>
 				</section>
 
-				<section>
+				<section data-transition="convex">
 					<h3>2: Connected Function Will Open Popup</h3>
 					<pre><code class="hljs" data-trim contenteditable>
 const handleFeatureClick = (location, features) => {
@@ -121,8 +121,8 @@ const handleFeatureClick = (location, features) => {
 				    </small>
 				</section>
 
-				<section>
-					<section>
+				<section data-transition="convex">
+					<section data-transition="convex">
 						<h3>3.1: Create The Popup</h3>
 						<pre><code class="hljs" data-trim contenteditable>
 const createPopup = (features) => {
@@ -142,7 +142,7 @@ const createPopup = (features) => {
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 						<h3>3.2: Useful Example (Loop Features)</h3>
 						<pre><code class="hljs" data-trim contenteditable>
 ReactDOM.render((
@@ -161,8 +161,8 @@ ReactDOM.render((
 					</section>
 				</section>
 
-				<section>
-					<section>
+				<section data-transition="convex">
+					<section data-transition="convex">
 						<h3>4.1: Override Default Styles</h3>
 						<pre><code class="hlcss" data-trim contenteditable>
 .esri-popup {
@@ -187,7 +187,7 @@ ReactDOM.render((
 							</p>
 						</small>
 					</section>
-					<section>
+					<section data-transition="convex">
 						<h4>4.2 Different styles can be chosen for different events</h4>
 						<pre><code class="hlcss" data-trim contenteditable>
 // apply on pointer-move instead of click
@@ -207,7 +207,7 @@ view.on('pointer-move', evt => {
 });
 							</code></pre>
 						</section>
-					    <section>
+					    <section data-transition="convex">
 						    <h4>4.3 Different styles can be chosen for different features</h4>
 						    <pre><code class="hlcss" data-trim contenteditable>
 // different styles on different features
@@ -228,7 +228,7 @@ view.hitTest(evt).then(res => {
 					    </section>
 			        </section>
 
-					<section>
+					<section data-transition="convex">
 						<h3>5: Set app state using actions, by passing Redux's dispatch to the popup generator</h3>
 						<pre><code class="hljsx" data-trim contenteditable>
 
@@ -249,11 +249,11 @@ const createPopup = (feats, disp) => {
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 						<h1>Example Time</h1>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 							<h4>Example 1</h4>
 							<video controls>
 									<source src="video/context-switching.mp4" type="video/mp4">
@@ -267,7 +267,7 @@ const createPopup = (feats, disp) => {
 							</small>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 							<h4>Example 2</h4>
 							<video controls>
 									<source src="video/control-app-state.mp4" type="video/mp4">
@@ -281,12 +281,12 @@ const createPopup = (feats, disp) => {
 							</small>
 					</section>
 				
-					<section>
+					<section data-transition="convex">
 						<h1>Advanced Considerations</h1>
 					</section>
 
-                    <section>
-						<section>
+                    <section data-transition="convex">
+						<section data-transition="convex">
 							<h3>6.1: Updating Internal Popup State</h3>
 							<ul>
 								<li>Inputs in popup can easily update application state through Redux actions,
@@ -294,7 +294,7 @@ const createPopup = (feats, disp) => {
 								<li>Rerendering only occurs when a popup is reopened by some event</li>
 							</ul>
 						</section>
-						<section>
+						<section data-transition="convex">
 							<h3>6.2: Internal Update Solution</h3>
 							<pre><code class="hljsx" data-trim contenteditable>
 const tooltipState = {popupOpen: false, popupPage: 1};
@@ -322,7 +322,7 @@ updateContent(popupNode);
 								</p>
 							</small>
 						</section>
-						<section>
+						<section data-transition="convex">
 							<h3>6.3: Internal Update Solution</h3>
 							<pre><code class="hljsx" data-trim contenteditable>
 const updateContent = (node) => {
@@ -348,7 +348,7 @@ const updateContent = (node) => {
 									</p>
 							</small>
 						</section>
-						<section>
+						<section data-transition="convex">
 							<h3>6.4: Internal Update Solution</h3>
 							<p>
 								Selecting multiple features for pagination additionally requires the use of an Identify task-
@@ -357,15 +357,15 @@ const updateContent = (node) => {
 						</section>
 					</section>
 
-					<section>
-						<section>
+					<section data-transition="convex">
+						<section data-transition="convex">
 							<h3>7.1: Update Popup State Externally</h3>
 							<p>
 								Similarly, updates of the state from external controls will not trigger a rerender,
 								so popup attributes will not visibly change with the state.
 							</p>
 						</section>
-						<section>
+						<section data-transition="convex">
 							<h3>7.2: External Update Solution</h3>
 							<ul>
 								<li>A simple solution: reopening the popup in the same location whene a property changes
@@ -377,11 +377,11 @@ const updateContent = (node) => {
 						</section>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 						<h1>More Examples</h1>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 							<h4>Example 3</h4>
 							<video controls>
 									<source src="video/set-state-internally.mp4" type="video/mp4">
@@ -394,7 +394,7 @@ const updateContent = (node) => {
 							</small>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 							<h4>Example 4</h4>
 							<video controls>
 									<source src="video/set-state-externally.mp4" type="video/mp4">
@@ -403,12 +403,12 @@ const updateContent = (node) => {
 								  <ul>
 											<li>Update popup rendering on external app state change</li>
 											<li>Perform analysis within popup</li>
-										  <li>Apply opening animation when popup in closed state, remove animation for updates while popup is open</li>
+										  <li>Apply opening animation when in closed state, remove update animation while open</li>
 									</ul>
 							</small>
 					</section>
 
-					<section>
+					<section data-transition="convex">
 						<h1>Thank You!</h1>
 							<small>
 							    <p>
