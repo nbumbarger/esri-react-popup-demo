@@ -65,7 +65,7 @@
 					<h1>HTML String</h1>
 					<h4>Drawbacks:</h4>
 					<ul>
-						<li>Difficult to write scripts; cannot be transpiled</li>
+						<li>Difficult to include scripting: cannot be transpiled</li>
 						<li>No programmatic access to imported modules</li>
 						<li>No access to application state/store</li>
 					</ul>
@@ -113,7 +113,7 @@ const handleFeatureClick = (location, features) => {
 					</code></pre>
 					<small>
 						<p>
-						  view.popup requires two attributes: click coordinates and content.
+						  "view.popup" requires two attributes: click coordinates and content.
 						</p>
 						<p>
 							For content, we will use a DOM node returned from "createPopup()".
@@ -232,7 +232,7 @@ view.hitTest(evt).then(res => {
 						<h3>5: Set app state using actions, by passing Redux's dispatch to the popup generator</h3>
 						<pre><code class="hljsx" data-trim contenteditable>
 
-							view.popup.open({location, content: this.createPopup(feats, disp)});
+view.popup.open({location, content: this.createPopup(feats, disp)});
 ...
 const createPopup = (feats, disp) => {
   const popupJsx = (
@@ -251,6 +251,34 @@ const createPopup = (feats, disp) => {
 
 					<section>
 						<h1>Example Time</h1>
+					</section>
+
+					<section>
+							<h4>Example 1</h4>
+							<video controls>
+									<source src="video/context-switching.mp4" type="video/mp4">
+							</video>
+						  <small>
+								  <ul>
+									  	<li>Calculate stats in popup</li>
+										  <li>Change style and content by context (click vs. hover, county vs. state vs. point)</li>
+										  <li>Call popup function externally from side panel</li>
+									</ul>
+							</small>
+					</section>
+
+					<section>
+							<h4>Example 2</h4>
+							<video controls>
+									<source src="video/control-app-state.mp4" type="video/mp4">
+							</video>
+						  <small>
+								  <ul>
+									  	<li>Dispatch Redux action to set app state on chart hover</li>
+										  <li>Read app state in popup to calculate stats</li>
+										  <li>Use third-party charting library</li>
+									</ul>
+							</small>
 					</section>
 				
 					<section>
@@ -351,6 +379,33 @@ const updateContent = (node) => {
 
 					<section>
 						<h1>More Examples</h1>
+					</section>
+
+					<section>
+							<h4>Example 3</h4>
+							<video controls>
+									<source src="video/set-state-internally.mp4" type="video/mp4">
+							</video>
+						  <small>
+								  <ul>
+									  	<li>Set state internally- force popup to redraw on change</li>
+										  <li>Implement multiple-feature selection/ pagination</li>
+									</ul>
+							</small>
+					</section>
+
+					<section>
+							<h4>Example 4</h4>
+							<video controls>
+									<source src="video/set-state-externally.mp4" type="video/mp4">
+							</video>
+						  <small>
+								  <ul>
+											<li>Update popup rendering on external app state change</li>
+											<li>Perform analysis within popup</li>
+										  <li>Apply opening animation when popup in closed state, remove animation for updates while popup is open</li>
+									</ul>
+							</small>
 					</section>
 
 					<section>
