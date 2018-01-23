@@ -40,7 +40,7 @@
 
 			<div class="slides">
 				<section>
-					<h1>Tooltips as Tool</h1>
+					<h1>Tooltips as a Tool</h1>
 					<h4>Super-Powered JS API Popups In React/Redux</h4>
 					<p>
 						<small>Presented by <a href="http://www.nickbumbarger.com">Nick Bumbarger</a> of <a href="https://www.blueraster.com">Blue Raster</a></small>
@@ -65,22 +65,22 @@
 					<h1>HTML String</h1>
 					<h4>Drawbacks:</h4>
 					<ul>
-						<li>Difficult to write; cannot be transpiled</li>
-						<li>No script access to imported modules</li>
+						<li>Difficult to write scripts; cannot be transpiled</li>
+						<li>No programmatic access to imported modules</li>
 						<li>No access to application state/store</li>
 					</ul>
 				</section>
 
 				<section>
 					<h1>The Super-Powered Way</h1>
-					<p>Send the View's Popup a Parentless DOM node, written in your framework of choice.</ph4>
+					<p>Send the view's popup a parentless DOM node, written in your framework of choice.</ph4>
 				</section>
 
 				<section>
 				    <h1>Super Popups</h1>
 					<ul>
 					    <li>Fully customizeable</li>
-						<li>Can be written using modern frameworks</li>
+						<li>Can be written and transpiled using modern frameworks</li>
 						<li>Full access to imported modules</li>
 						<li>Can access and set application state</li>
 					</ul>
@@ -113,7 +113,7 @@ const handleFeatureClick = (location, features) => {
 					</code></pre>
 					<small>
 						<p>
-							The popup requires two attributes: click coordinates and content.
+						  view.popup requires two attributes: click coordinates and content.
 						</p>
 						<p>
 							For content, we will use a DOM node returned from "createPopup()".
@@ -182,8 +182,8 @@ ReactDOM.render((
 								Use boilerplate CSS to nullify default header, footer, content width, etc styles.
 							</p>
 							<p>
-								It is possible to retain default controls if desired.
-								For example, you could remove the header but retain the dock control by setting header height to 0 and hiding only the text.
+								It is possible to retain default controls by disabling styles more selectively.
+								For example, you could remove the header but retain the dock control by setting header height to 0 and hiding only the header text.
 							</p>
 						</small>
 					</section>
@@ -229,7 +229,7 @@ view.hitTest(evt).then(res => {
 			        </section>
 
 					<section>
-						<h3>5: Set app state by simply passing dispatch to the popup generator</h3>
+						<h3>5: Set app state using actions, by passing Redux's dispatch to the popup generator</h3>
 						<pre><code class="hljsx" data-trim contenteditable>
 
 							view.popup.open({location, content: this.createPopup(feats, disp)});
@@ -261,8 +261,9 @@ const createPopup = (feats, disp) => {
 						<section>
 							<h3>6.1: Updating Internal Popup State</h3>
 							<ul>
-								<li>Inputs in popup can easily update application state through Redux actions, but doing so does not trigger a rerender of the popup</li>
-								<li>Rerendering only occurs when a popup is reopened</li>
+								<li>Inputs in popup can easily update application state through Redux actions,
+									  but doing so does not trigger a rerender of the popup</li>
+								<li>Rerendering only occurs when a popup is reopened by some event</li>
 							</ul>
 						</section>
 						<section>
@@ -315,15 +316,15 @@ const updateContent = (node) => {
 										If popup isn't yet open, function adds the the current state data to the node being returned.
 									</p>
 									<p>
-										If already open, function selects existing popup from the DOM and adds the state data to it.
+										If already open, function selects EXISTING popup from the DOM and adds the state data to it.
 									</p>
 							</small>
 						</section>
 						<section>
 							<h3>6.4: Internal Update Solution</h3>
 							<p>
-								Selecting multiple features for pagination additionally requires the use of an ESRI Identify task-
-								a kind of spatial query which selects multiple features around a radius that's measured in pixels rather than map units.
+								Selecting multiple features for pagination additionally requires the use of an Identify task-
+								a spatial query which selects multiple features around a radius that's measured in pixels rather than map units.
 							</p>
 						</section>
 					</section>
@@ -332,15 +333,18 @@ const updateContent = (node) => {
 						<section>
 							<h3>7.1: Update Popup State Externally</h3>
 							<p>
-								Similarly, updates of the state from external controls will not trigger a rerender, so popup attributes will not visibly change.
+								Similarly, updates of the state from external controls will not trigger a rerender,
+								so popup attributes will not visibly change with the state.
 							</p>
 						</section>
 						<section>
 							<h3>7.2: External Update Solution</h3>
 							<ul>
-								<li>A simple solution: reopening the popup in the same location whenever a property changes appears to make it refresh instantly</li>
+								<li>A simple solution: reopening the popup in the same location whene a property changes
+									  appears to make it refresh instantly</li>
 								<li>To maintain the illusion, disable any intro animations whenever the popup is currently open</li>
-								<li>When the view contains no popup, add animation styles to the popup. When is created, remove the styles so that the refresh occurs with no transition</li>
+								<li>When the view contains no popup, add animation styles to the popup. When a popup is opened, remove
+									  the styles so that the refresh occurs with no transition</li>
 							</ul>
 						</section>
 					</section>
@@ -356,7 +360,10 @@ const updateContent = (node) => {
 								    <a href="https://github.com/nbumbarger/esri-react-popup-demo">https://github.com/nbumbarger/esri-react-popup-demo</a>
 								</p>
 								<p>
-									Currently includes presentation, planned to include working samples
+									Currently includes presentation, I hope to include working samples given enough interest
+								</p>
+								<p>
+									<a href='mailto:nbumbarger@blueraster.com'>nbumbarger@blueraster.com</a>
 								</p>
 							</small>
 						</p>
